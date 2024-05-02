@@ -14,4 +14,6 @@ typedef struct {
     C_Transform *transform;
 } E_GUIElement;
 
+void MoveAndCollide(E_Entity *entity, vec2i input_dir);
+
 #endif//ENTITY_H

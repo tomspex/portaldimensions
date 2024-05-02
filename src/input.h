@@ -1,0 +1,9 @@
+#ifndef INPUT_H
+#define INPUT_H
+
+#define I_UP 	SDL_SCANCODE_UP
+#define I_DOWN	SDL_SCANCODE_DOWN
+#define I_LEFT	SDL_SCANCODE_LEFT
+#define I_RIGHT SDL_SCANCODE_RIGHT
+
+#endif//INPUT_H
