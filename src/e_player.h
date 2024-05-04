@@ -2,8 +2,8 @@
 #define PLAYER_H
 
 #include "var.h"
-#include "entity.h"
+#include "e_entity.h"
 
-vec2i S_PlayerInput(E_Entity *player);
+vec2 E_PlayerInput(E_Entity *player);
 
 #endif//PLAYER_H

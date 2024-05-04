@@ -13,9 +13,14 @@ typedef struct {
 } C_Sprites;
 
 typedef struct {
-    vec2 position;
+    SDL_Rect dest;
     vec2 scale;
     float rotation;
 } C_Transform;
+
+typedef struct {
+    int health,
+        speed;
+} C_Stats;
 
 #endif//COMPONENT_H
