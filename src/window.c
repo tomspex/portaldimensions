@@ -26,3 +26,12 @@ bool WIN_CheckQuit() {
     }
     return(1);
 }
+
+void WIN_CapFramerate(float *lastTick) {
+    float nowTick = SDL_GetTicks();
+    float deltaTime = (nowTick - *lastTick);
+    if(WIN_SPEED > deltaTime) { 
+        SDL_Delay(WIN_SPEED - deltaTime); 
+    }
+    *lastTick = nowTick;
+}

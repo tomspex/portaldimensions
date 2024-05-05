@@ -10,10 +10,11 @@
 typedef struct {
     SDL_Texture *spritesheet;
     SDL_Rect src;
+    SDL_Rect dest;
 } C_Sprites;
 
 typedef struct {
-    SDL_Rect dest;
+    vec2 position; 
     vec2 scale;
     float rotation;
 } C_Transform;

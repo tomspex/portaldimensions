@@ -16,11 +16,16 @@ int main(int argc, char *argv[]) {
     
     E_Entity player = E_PlayerCreate(viewport.renderer);
 
+    float lastTick = 0.0;
     while(WIN_CheckQuit()) {
         SDL_RenderClear(viewport.renderer);
+        
         E_MoveAndCollide(&player, E_PlayerInput(&player));
         E_DrawEntity(&player, viewport.renderer);
+        
         SDL_RenderPresent(viewport.renderer);
+       
+        WIN_CapFramerate(&lastTick);
     }
 
     E_DestroyEntity(&player);

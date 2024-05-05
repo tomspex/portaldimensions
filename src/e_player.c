@@ -14,8 +14,8 @@ E_Entity E_PlayerCreate(SDL_Renderer *renderer) {
         "playertemp.png"
     );
     player.stats->speed = E_PLAYER_SPEED;
-    player.transform->dest.w = E_PLAYER_WIDTH;
-    player.transform->dest.h = E_PLAYER_HEIGHT;
+    player.sprites->dest.w = E_PLAYER_WIDTH;
+    player.sprites->dest.h = E_PLAYER_HEIGHT;
     player.sprites->src.w = E_PLAYER_WIDTH;
     player.sprites->src.h = E_PLAYER_HEIGHT;
     

@@ -23,7 +23,7 @@ void E_DrawEntity(E_Entity *entity, SDL_Renderer *renderer) {
         renderer,
         entity->sprites->spritesheet,
         &entity->sprites->src,
-        &entity->transform->dest
+        &entity->sprites->dest
     );
 }
 
