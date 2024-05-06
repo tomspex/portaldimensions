@@ -6,6 +6,7 @@
 #include "var.h"
 
 #define C_Collision SDL_Rect
+#define C_Velocity vec2
 
 typedef struct {
     SDL_Texture *spritesheet;

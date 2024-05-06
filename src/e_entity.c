@@ -1,4 +1,5 @@
 #include <stdlib.h>
+#include <SDL2/SDL.h>
 
 #include "e_entity.h"
 
@@ -12,6 +13,10 @@ void E_CreateCollision(E_Entity *entity) {
 
 void E_CreateTransform(E_Entity *entity) {
     entity->transform = malloc(sizeof(C_Transform));
+}
+
+void E_CreateVelocity(E_Entity *entity) {
+    entity->velocity = malloc(sizeof(C_Velocity));
 }
 
 void E_CreateStats(E_Entity *entity) {
@@ -29,6 +34,7 @@ void E_DrawEntity(E_Entity *entity, SDL_Renderer *renderer) {
 
 void E_DestroyEntity(E_Entity *entity) {
     if(entity->sprites) {
+        SDL_DestroyTexture(entity->sprites->spritesheet);
         free(entity->sprites);
     }
     if(entity->collision) {
@@ -36,6 +42,9 @@ void E_DestroyEntity(E_Entity *entity) {
     }
     if(entity->transform) {
         free(entity->transform);
+    }
+    if(entity->velocity) {
+        free(entity->velocity);
     }
     if(entity->stats) {
         free(entity->stats);

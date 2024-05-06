@@ -19,8 +19,9 @@ int main(int argc, char *argv[]) {
     float lastTick = 0.0;
     while(WIN_CheckQuit()) {
         SDL_RenderClear(viewport.renderer);
-        
-        E_MoveAndCollide(&player, E_PlayerInput(&player));
+       
+        E_PlayerInput(&player);
+        E_MoveAndCollide(&player);
         E_DrawEntity(&player, viewport.renderer);
         
         SDL_RenderPresent(viewport.renderer);

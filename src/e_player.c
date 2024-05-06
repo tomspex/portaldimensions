@@ -1,5 +1,6 @@
 #include <SDL2/SDL_image.h>
 
+#include "util.h"
 #include "m_input.h"
 #include "e_player.h"
 
@@ -7,6 +8,7 @@ E_Entity E_PlayerCreate(SDL_Renderer *renderer) {
     E_Entity player;
     E_CreateSprites(&player);
     E_CreateTransform(&player);
+    E_CreateVelocity(&player);
     E_CreateStats(&player);
 
     player.sprites->spritesheet = IMG_LoadTexture(
@@ -22,10 +24,19 @@ E_Entity E_PlayerCreate(SDL_Renderer *renderer) {
     return(player);
 }
 
-vec2 E_PlayerInput(E_Entity *player) {
+void E_PlayerInput(E_Entity *player) {
 	const uint8_t *input = SDL_GetKeyboardState(NULL);
 	vec2 input_dir;
 	input_dir.x = input[I_RIGHT] - input[I_LEFT];
 	input_dir.y = input[I_DOWN] - input[I_UP];
-	return(input_dir);
+        player->velocity->x = lerp(
+            player->velocity->x, 
+            input_dir.x * player->stats->speed, 
+            E_PLAYER_FRICTION
+        );
+        player->velocity->y = lerp(
+            player->velocity->y, 
+            input_dir.y * player->stats->speed, 
+            E_PLAYER_FRICTION
+        );
 }
