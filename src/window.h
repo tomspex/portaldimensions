@@ -2,8 +2,9 @@
 #define WINDOW_H
 
 #define WIN_SPEED   16.6666f
-#define WIN_WIDTH   640
-#define WIN_HEIGHT  480
+#define WIN_WIDTH   320
+#define WIN_HEIGHT  240
+#define WIN_SCALE   2
 
 #include <stdbool.h>
 #include <SDL2/SDL.h>

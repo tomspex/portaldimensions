@@ -24,11 +24,14 @@ void E_CreateStats(E_Entity *entity) {
 }
 
 void E_DrawEntity(E_Entity *entity, SDL_Renderer *renderer) {
-    SDL_RenderCopy(
+    SDL_RenderCopyEx(
         renderer,
         entity->sprites->spritesheet,
         &entity->sprites->src,
-        &entity->sprites->dest
+        &entity->sprites->dest,
+        entity->transform->rotation,
+        NULL,
+        entity->sprites->flip
     );
 }
 

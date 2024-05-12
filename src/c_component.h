@@ -1,6 +1,7 @@
 #ifndef COMPONENT_H
 #define COMPONENT_H
 
+#include <stdbool.h>
 #include <SDL2/SDL.h>
 
 #include "var.h"
@@ -10,6 +11,7 @@
 
 typedef struct {
     SDL_Texture *spritesheet;
+    SDL_RendererFlip flip;
     SDL_Rect src;
     SDL_Rect dest;
 } C_Sprites;

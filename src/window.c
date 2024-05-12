@@ -6,13 +6,14 @@ WIN_Viewport WIN_CreateViewport(char *name) {
 	name,
     	SDL_WINDOWPOS_CENTERED,
     	SDL_WINDOWPOS_CENTERED,
-    	WIN_WIDTH,
-	WIN_HEIGHT,
+    	WIN_WIDTH*WIN_SCALE,
+	WIN_HEIGHT*WIN_SCALE,
 	0
     );
     viewport.renderer = SDL_CreateRenderer(
 	viewport.window, -1, 0
-    );	
+    );
+    SDL_RenderSetLogicalSize(viewport.renderer, WIN_WIDTH, WIN_HEIGHT);
     return(viewport);
 }
 

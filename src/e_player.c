@@ -2,6 +2,7 @@
 
 #include "util.h"
 #include "m_input.h"
+#include "e_active.h"
 #include "e_player.h"
 
 E_Entity E_PlayerCreate(SDL_Renderer *renderer) {
@@ -32,11 +33,11 @@ void E_PlayerInput(E_Entity *player) {
         player->velocity->x = lerp(
             player->velocity->x, 
             input_dir.x * player->stats->speed, 
-            E_PLAYER_FRICTION
+            E_DEFAULT_FRICTION
         );
         player->velocity->y = lerp(
             player->velocity->y, 
             input_dir.y * player->stats->speed, 
-            E_PLAYER_FRICTION
+            E_DEFAULT_FRICTION
         );
 }
