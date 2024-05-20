@@ -1,11 +1,11 @@
-#include "e_active.h"
+#include "active.h"
 
-void E_MoveAndCollide(E_Entity *entity) {
-    E_Move(entity);
+void MoveAndCollide(Entity *entity) {
+    Move(entity);
     // add collide part later
 }
 
-void E_Move(E_Entity *entity) {
+void Move(Entity *entity) {
     entity->transform->position.x += entity->velocity->x * entity->stats->speed;
     entity->transform->position.y += entity->velocity->y * entity->stats->speed;
     if(entity->sprites) {
@@ -14,7 +14,7 @@ void E_Move(E_Entity *entity) {
     }
 }
 
-void E_VelocityFlip(E_Entity *entity) {
+void VelocityFlip(Entity *entity) {
     if(entity->velocity->x > 0) {
         entity->sprites->flip = SDL_FLIP_HORIZONTAL;
     } else {

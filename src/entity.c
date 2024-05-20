@@ -1,29 +1,29 @@
 #include <stdlib.h>
 #include <SDL2/SDL.h>
 
-#include "e_entity.h"
+#include "entity.h"
 
-void E_CreateSprites(E_Entity *entity) {
-    entity->sprites = malloc(sizeof(C_Sprites));
+void e_CreateSprites(Entity *entity) {
+    entity->sprites = malloc(sizeof(Sprites));
 }
 
-void E_CreateCollision(E_Entity *entity) {
-    entity->collision = malloc(sizeof(C_Collision));
+void e_CreateCollision(Entity *entity) {
+    entity->collision = malloc(sizeof(Collision));
 }
 
-void E_CreateTransform(E_Entity *entity) {
-    entity->transform = malloc(sizeof(C_Transform));
+void e_CreateTransform(Entity *entity) {
+    entity->transform = malloc(sizeof(Transform));
 }
 
-void E_CreateVelocity(E_Entity *entity) {
-    entity->velocity = malloc(sizeof(C_Velocity));
+void e_CreateVelocity(Entity *entity) {
+    entity->velocity = malloc(sizeof(Velocity));
 }
 
-void E_CreateStats(E_Entity *entity) {
-    entity->stats = malloc(sizeof(C_Stats));
+void e_CreateStats(Entity *entity) {
+    entity->stats = malloc(sizeof(Stats));
 }
 
-void E_DrawEntity(E_Entity *entity, SDL_Renderer *renderer) {
+void e_DrawEntity(Entity *entity, SDL_Renderer *renderer) {
     SDL_RenderCopyEx(
         renderer,
         entity->sprites->spritesheet,
@@ -35,7 +35,7 @@ void E_DrawEntity(E_Entity *entity, SDL_Renderer *renderer) {
     );
 }
 
-void E_DestroyEntity(E_Entity *entity) {
+void e_DestroyEntity(Entity *entity) {
     if(entity->sprites) {
         SDL_DestroyTexture(entity->sprites->spritesheet);
         free(entity->sprites);

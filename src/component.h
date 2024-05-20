@@ -6,25 +6,25 @@
 
 #include "var.h"
 
-#define C_Collision SDL_Rect
-#define C_Velocity vec2
+#define Collision SDL_Rect
+#define Velocity vec2
 
 typedef struct {
     SDL_Texture *spritesheet;
     SDL_RendererFlip flip;
     SDL_Rect src;
     SDL_Rect dest;
-} C_Sprites;
+} Sprites;
 
 typedef struct {
     vec2 position; 
     vec2 scale;
     float rotation;
-} C_Transform;
+} Transform;
 
 typedef struct {
     int health,
         speed;
-} C_Stats;
+} Stats;
 
 #endif//COMPONENT_H
