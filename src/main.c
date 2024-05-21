@@ -17,7 +17,6 @@ int main(int argc, char *argv[]) {
     WIN_Viewport viewport = WIN_CreateViewport("Portal: Dimensions");
     
     SDL_Texture *tileMapTexture = IMG_LoadTexture(viewport.renderer, "tilemap.png");
-
     TileMap tileMap = TileMapCreate(tileMapTexture);
     TileMapRead(&tileMap, "tile.bin");
 
@@ -47,6 +46,7 @@ int main(int argc, char *argv[]) {
         WIN_CapFramerate(&lastTick);
     }
 
+    TileMapDestroy(&tileMap);
     EntityDestroy(&player);
     EntityDestroy(&npc);
     return(0);

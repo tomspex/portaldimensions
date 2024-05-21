@@ -60,3 +60,10 @@ void TileMapRender(TileMap *tileMap, Entity *camera, SDL_Renderer *renderer) {
         }
     } 
 }
+
+void TileMapDestroy(TileMap *tileMap) {
+    if(tileMap->spritesheet) {
+        SDL_DestroyTexture(tileMap->spritesheet);
+    }
+    free(tileMap->map);
+}
