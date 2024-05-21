@@ -3,39 +3,43 @@
 
 #include "entity.h"
 
-void e_CreateSprites(Entity *entity) {
+void CreateSprites(Entity *entity) {
     entity->sprites = malloc(sizeof(Sprites));
 }
 
-void e_CreateCollision(Entity *entity) {
+void CreateCollision(Entity *entity) {
     entity->collision = malloc(sizeof(Collision));
 }
 
-void e_CreateTransform(Entity *entity) {
+void CreateTransform(Entity *entity) {
     entity->transform = malloc(sizeof(Transform));
 }
 
-void e_CreateVelocity(Entity *entity) {
+void CreateVelocity(Entity *entity) {
     entity->velocity = malloc(sizeof(Velocity));
 }
 
-void e_CreateStats(Entity *entity) {
+void CreateStats(Entity *entity) {
     entity->stats = malloc(sizeof(Stats));
 }
 
-void e_DrawEntity(Entity *entity, SDL_Renderer *renderer) {
+void EntityRender(Entity *entity, Entity *camera, SDL_Renderer *renderer) {
+    SDL_Rect offsetPos = entity->sprites->dest;
+    offsetPos.x -= round(camera->transform->position.x);
+    offsetPos.y -= round(camera->transform->position.y);
+
     SDL_RenderCopyEx(
         renderer,
         entity->sprites->spritesheet,
         &entity->sprites->src,
-        &entity->sprites->dest,
+        &offsetPos,
         entity->transform->rotation,
         NULL,
         entity->sprites->flip
     );
 }
 
-void e_DestroyEntity(Entity *entity) {
+void EntityDestroy(Entity *entity) {
     if(entity->sprites) {
         SDL_DestroyTexture(entity->sprites->spritesheet);
         free(entity->sprites);

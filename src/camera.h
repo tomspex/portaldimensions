@@ -9,6 +9,5 @@
 
 Entity CameraCreate();
 void CameraCenter(Entity *camera, Entity *entity);
-void CameraRender(Entity *camera, Entity *entity, SDL_Renderer *renderer);
 
 #endif//CAMERA_H

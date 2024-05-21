@@ -5,7 +5,7 @@
 
 Entity CameraCreate() {
     Entity camera;
-    e_CreateTransform(&camera);
+    CreateTransform(&camera);
     return(camera);
 }
 

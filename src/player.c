@@ -7,10 +7,10 @@
 
 Entity PlayerCreate(SDL_Renderer *renderer) {
     Entity player;
-    e_CreateSprites(&player);
-    e_CreateTransform(&player);
-    e_CreateVelocity(&player);
-    e_CreateStats(&player);
+    CreateSprites(&player);
+    CreateTransform(&player);
+    CreateVelocity(&player);
+    CreateStats(&player);
 
     player.sprites->spritesheet = IMG_LoadTexture(
         renderer,

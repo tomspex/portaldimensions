@@ -11,12 +11,12 @@ typedef struct {
     Stats     *stats;
 } Entity;
 
-void e_CreateSprites(Entity *entity);
-void e_CreateCollision(Entity *entity);
-void e_CreateTransform(Entity *entity);
-void e_CreateVelocity(Entity *entity);
-void e_CreateStats(Entity *entity);
-void e_DestroyEntity(Entity *entity);
-void e_DrawEntity(Entity *entity, SDL_Renderer *renderer);
+void CreateSprites(Entity *entity);
+void CreateCollision(Entity *entity);
+void CreateTransform(Entity *entity);
+void CreateVelocity(Entity *entity);
+void CreateStats(Entity *entity);
+void EntityDestroy(Entity *entity);
+void EntityRender(Entity *entity, Entity *camera, SDL_Renderer *renderer);
 
 #endif//ENTITY_H

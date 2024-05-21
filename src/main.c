@@ -8,6 +8,7 @@
 #include "player.h"
 #include "npc.h"
 #include "camera.h"
+#include "tile.h"
 // temp
 
 #include "window.h"
@@ -15,6 +16,11 @@
 int main(int argc, char *argv[]) {
     WIN_Viewport viewport = WIN_CreateViewport("Portal: Dimensions");
     
+    SDL_Texture *tileMapTexture = IMG_LoadTexture(viewport.renderer, "tilemap.png");
+
+    TileMap tileMap = TileMapCreate(tileMapTexture);
+    TileMapRead(&tileMap, "tile.bin");
+
     Entity camera = CameraCreate();
     Entity player = PlayerCreate(viewport.renderer);
     Entity npc = PlayerCreate(viewport.renderer);
@@ -32,15 +38,16 @@ int main(int argc, char *argv[]) {
 
         CameraCenter(&camera, &player);
 
-        CameraRender(&camera, &player, viewport.renderer);
-        CameraRender(&camera, &npc, viewport.renderer);
+        TileMapRender(&tileMap, &camera, viewport.renderer);
+        EntityRender(&player, &camera, viewport.renderer);
+        EntityRender(&npc, &camera, viewport.renderer);
 
         SDL_RenderPresent(viewport.renderer);
        
         WIN_CapFramerate(&lastTick);
     }
 
-    e_DestroyEntity(&player);
-    e_DestroyEntity(&npc);
+    EntityDestroy(&player);
+    EntityDestroy(&npc);
     return(0);
 }
