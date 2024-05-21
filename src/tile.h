@@ -6,12 +6,16 @@
 #include "entity.h"
 #include "var.h"
 
-#define Tile int // the sprite id
 #define TILE_WIDTH  32
 #define TILE_HEIGHT 32
 
 typedef struct {
-    Tile *map;
+	int spriteID;
+	ivec2 position;
+} Tile;
+
+typedef struct {
+    Tile *tiles;
     int height, width, size;
     SDL_Texture *spritesheet;
 } TileMap;
