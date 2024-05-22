@@ -1,30 +1,7 @@
-#include <SDL2/SDL_image.h>
-
 #include "util.h"
 #include "input.h"
 #include "active.h"
 #include "player.h"
-
-Entity PlayerCreate(SDL_Renderer *renderer) {
-    Entity player;
-    EntityResetPointers(&player);
-    CreateSprites(&player);
-    CreateTransform(&player);
-    CreateVelocity(&player);
-    CreateStats(&player);
-
-    player.sprites->spritesheet = IMG_LoadTexture(
-        renderer,
-        "playertemp.png"
-    );
-    player.stats->speed = PLAYER_SPEED;
-    player.sprites->dest.w = PLAYER_WIDTH;
-    player.sprites->dest.h = PLAYER_HEIGHT;
-    player.sprites->src.w = PLAYER_WIDTH;
-    player.sprites->src.h = PLAYER_HEIGHT;
-    
-    return(player);
-}
 
 void PlayerInput(Entity *player) {
 	const uint8_t *input = SDL_GetKeyboardState(NULL);

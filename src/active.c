@@ -1,4 +1,27 @@
+#include <SDL2/SDL_image.h>
+
 #include "active.h"
+
+Entity ActiveCreate(char *spritesheet, SDL_Renderer *renderer) {
+    Entity active;
+    EntityResetPointers(&active);
+    CreateSprites(&active);
+    CreateTransform(&active);
+    CreateVelocity(&active);
+    CreateStats(&active);
+
+    active.sprites->spritesheet = IMG_LoadTexture(
+        renderer,
+        spritesheet
+    );
+    active.stats->speed = ACTIVE_SPEED;
+    active.sprites->dest.w = ACTIVE_WIDTH;
+    active.sprites->dest.h = ACTIVE_HEIGHT;
+    active.sprites->src.w = ACTIVE_WIDTH;
+    active.sprites->src.h = ACTIVE_HEIGHT;
+    
+    return(active);
+}
 
 void MoveAndCollide(Entity *entity) {
     Move(entity);

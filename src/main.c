@@ -21,8 +21,8 @@ int main(int argc, char *argv[]) {
     TileMapRead(&tileMap, "tile.bin");
 
     Entity camera = CameraCreate();
-    Entity player = PlayerCreate(viewport.renderer);
-    Entity npc = PlayerCreate(viewport.renderer);
+    Entity player = ActiveCreate("player.png", viewport.renderer);
+    Entity npc = ActiveCreate("npc.png", viewport.renderer);
 
     float lastTick = 0.0;
     while(WIN_CheckQuit()) {

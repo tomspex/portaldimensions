@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#include "util.h"
 #include "tile.h"
 
 TileMap TileMapCreate(SDL_Texture *spritesheet) {
@@ -38,8 +39,8 @@ void TileMapRender(TileMap *tileMap, Entity *camera, SDL_Renderer *renderer) {
     
     int cameraX = round(camera->collision->x),
         cameraY = round(camera->collision->y),
-        cameraMapX = cameraX/TILE_WIDTH,
-        cameraMapY = cameraY/TILE_HEIGHT,
+        cameraMapX = imin(cameraX/TILE_WIDTH, 0),
+        cameraMapY = imin(cameraY/TILE_HEIGHT, 0),
         cameraMapW = camera->collision->w/TILE_WIDTH,
         cameraMapH = camera->collision->h/TILE_HEIGHT+1;
     SDL_Rect 
@@ -49,6 +50,7 @@ void TileMapRender(TileMap *tileMap, Entity *camera, SDL_Renderer *renderer) {
     for(int i=0;i<=cameraMapH;i++) {
         for(int j=0;j<=cameraMapW;j++) {
             int index = cameraMapX+j+(cameraMapY+i)*tileMap->width;
+            printf("index: %u\n", index);
             if(tileMap->tiles[index].spriteID != 0) {
                 tileDest.x = tileMap->tiles[index].position.x*TILE_WIDTH-cameraX;
                 tileDest.y = tileMap->tiles[index].position.y*TILE_HEIGHT-cameraY;
