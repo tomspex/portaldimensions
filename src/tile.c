@@ -36,29 +36,27 @@ void TileMapRead(TileMap *tileMap, const char *src) {
 
 void TileMapRender(TileMap *tileMap, Entity *camera, SDL_Renderer *renderer) {
 
-    int cameraX = round(camera->transform->position.x),
-        cameraY = round(camera->transform->position.y);
+    int cameraX = round(camera->collision->x),
+        cameraY = round(camera->collision->y);
+    SDL_Rect 
+        tileSrc = {0, 0, TILE_WIDTH, TILE_HEIGHT},
+        tileDest = {0, 0, TILE_WIDTH, TILE_HEIGHT};
+
     for(int i=0;i<tileMap->size;i++) {
         if(tileMap->tiles[i].spriteID != 0) {
-            SDL_Rect 
-            tileSrc = {
-				(tileMap->tiles[i].spriteID-1)*TILE_WIDTH, // subtract one to account for null value
-				0,
-                TILE_WIDTH,
-                TILE_HEIGHT
-            },
-			tileDest = {
-                tileMap->tiles[i].position.x*TILE_WIDTH-cameraX,
-                tileMap->tiles[i].position.y*TILE_HEIGHT-cameraY,
-                TILE_WIDTH,
-                TILE_HEIGHT
-            };
-            SDL_RenderCopy(
-                renderer,
-                tileMap->spritesheet,
-                &tileSrc,
-                &tileDest
-            );
+            tileDest.x = tileMap->tiles[i].position.x*TILE_WIDTH;
+            tileDest.y = tileMap->tiles[i].position.y*TILE_HEIGHT;
+	    if(SDL_HasIntersection(&tileDest, camera->collision)) {
+                tileDest.x -= cameraX;
+                tileDest.y -= cameraY;
+                tileSrc.x = (tileMap->tiles[i].spriteID-1)*TILE_WIDTH; // subtract one to account for null value
+                SDL_RenderCopy(
+                    renderer,
+                    tileMap->spritesheet,
+                    &tileSrc,
+                    &tileDest
+                );
+            }
         }
     } 
 }

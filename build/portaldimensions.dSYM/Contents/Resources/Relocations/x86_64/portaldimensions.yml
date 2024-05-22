@@ -1,0 +1,38 @@
+---
+triple:          'x86_64-apple-darwin'
+binary-path:     'build/portaldimensions'
+relocations:
+  - { offsetInCU: 0x26, offset: 0x26, size: 0x8, addend: 0x0, symName: _MoveAndCollide, symObjAddr: 0x0, symBinAddr: 0x100003080, symSize: 0x20 }
+  - { offsetInCU: 0x55, offset: 0x55, size: 0x8, addend: 0x0, symName: _MoveAndCollide, symObjAddr: 0x0, symBinAddr: 0x100003080, symSize: 0x20 }
+  - { offsetInCU: 0x79, offset: 0x79, size: 0x8, addend: 0x0, symName: _Move, symObjAddr: 0x20, symBinAddr: 0x1000030A0, symSize: 0x100 }
+  - { offsetInCU: 0x9D, offset: 0x9D, size: 0x8, addend: 0x0, symName: _VelocityFlip, symObjAddr: 0x120, symBinAddr: 0x1000031A0, symSize: 0x43 }
+  - { offsetInCU: 0x26, offset: 0x287, size: 0x8, addend: 0x0, symName: _CameraCreate, symObjAddr: 0x0, symBinAddr: 0x1000031F0, symSize: 0x60 }
+  - { offsetInCU: 0x55, offset: 0x2B6, size: 0x8, addend: 0x0, symName: _CameraCreate, symObjAddr: 0x0, symBinAddr: 0x1000031F0, symSize: 0x60 }
+  - { offsetInCU: 0x7E, offset: 0x2DF, size: 0x8, addend: 0x0, symName: _CameraCenter, symObjAddr: 0x60, symBinAddr: 0x100003250, symSize: 0xD5 }
+  - { offsetInCU: 0x26, offset: 0x4D7, size: 0x8, addend: 0x0, symName: _CreateSprites, symObjAddr: 0x0, symBinAddr: 0x100003330, symSize: 0x30 }
+  - { offsetInCU: 0x55, offset: 0x506, size: 0x8, addend: 0x0, symName: _CreateSprites, symObjAddr: 0x0, symBinAddr: 0x100003330, symSize: 0x30 }
+  - { offsetInCU: 0x79, offset: 0x52A, size: 0x8, addend: 0x0, symName: _CreateCollision, symObjAddr: 0x30, symBinAddr: 0x100003360, symSize: 0x30 }
+  - { offsetInCU: 0x9D, offset: 0x54E, size: 0x8, addend: 0x0, symName: _CreateTransform, symObjAddr: 0x60, symBinAddr: 0x100003390, symSize: 0x30 }
+  - { offsetInCU: 0xC1, offset: 0x572, size: 0x8, addend: 0x0, symName: _CreateVelocity, symObjAddr: 0x90, symBinAddr: 0x1000033C0, symSize: 0x30 }
+  - { offsetInCU: 0xE5, offset: 0x596, size: 0x8, addend: 0x0, symName: _CreateStats, symObjAddr: 0xC0, symBinAddr: 0x1000033F0, symSize: 0x30 }
+  - { offsetInCU: 0x109, offset: 0x5BA, size: 0x8, addend: 0x0, symName: _EntityRender, symObjAddr: 0xF0, symBinAddr: 0x100003420, symSize: 0x100 }
+  - { offsetInCU: 0x157, offset: 0x608, size: 0x8, addend: 0x0, symName: _EntityDestroy, symObjAddr: 0x1F0, symBinAddr: 0x100003520, symSize: 0xAB }
+  - { offsetInCU: 0x26, offset: 0x807, size: 0x8, addend: 0x0, symName: _main, symObjAddr: 0x0, symBinAddr: 0x1000035D0, symSize: 0x18F }
+  - { offsetInCU: 0x63, offset: 0x844, size: 0x8, addend: 0x0, symName: _main, symObjAddr: 0x0, symBinAddr: 0x1000035D0, symSize: 0x18F }
+  - { offsetInCU: 0x26, offset: 0xBA3, size: 0x8, addend: 0x0, symName: _NPCInput, symObjAddr: 0x0, symBinAddr: 0x100003760, symSize: 0xD8 }
+  - { offsetInCU: 0x55, offset: 0xBD2, size: 0x8, addend: 0x0, symName: _NPCInput, symObjAddr: 0x0, symBinAddr: 0x100003760, symSize: 0xD8 }
+  - { offsetInCU: 0x26, offset: 0xDD8, size: 0x8, addend: 0x0, symName: _PlayerCreate, symObjAddr: 0x0, symBinAddr: 0x100003840, symSize: 0xA0 }
+  - { offsetInCU: 0x63, offset: 0xE15, size: 0x8, addend: 0x0, symName: _PlayerCreate, symObjAddr: 0x0, symBinAddr: 0x100003840, symSize: 0xA0 }
+  - { offsetInCU: 0x9A, offset: 0xE4C, size: 0x8, addend: 0x0, symName: _PlayerInput, symObjAddr: 0xA0, symBinAddr: 0x1000038E0, symSize: 0xCD }
+  - { offsetInCU: 0x26, offset: 0x1083, size: 0x8, addend: 0x0, symName: _TileMapCreate, symObjAddr: 0x0, symBinAddr: 0x1000039B0, symSize: 0x20 }
+  - { offsetInCU: 0x63, offset: 0x10C0, size: 0x8, addend: 0x0, symName: _TileMapCreate, symObjAddr: 0x0, symBinAddr: 0x1000039B0, symSize: 0x20 }
+  - { offsetInCU: 0x99, offset: 0x10F6, size: 0x8, addend: 0x0, symName: _TileMapRead, symObjAddr: 0x20, symBinAddr: 0x1000039D0, symSize: 0x140 }
+  - { offsetInCU: 0xF5, offset: 0x1152, size: 0x8, addend: 0x0, symName: _TileMapRender, symObjAddr: 0x160, symBinAddr: 0x100003B10, symSize: 0x1A0 }
+  - { offsetInCU: 0x18A, offset: 0x11E7, size: 0x8, addend: 0x0, symName: _TileMapDestroy, symObjAddr: 0x300, symBinAddr: 0x100003CB0, symSize: 0x3A }
+  - { offsetInCU: 0x26, offset: 0x1681, size: 0x8, addend: 0x0, symName: _lerp, symObjAddr: 0x0, symBinAddr: 0x100003CF0, symSize: 0x31 }
+  - { offsetInCU: 0x33, offset: 0x168E, size: 0x8, addend: 0x0, symName: _lerp, symObjAddr: 0x0, symBinAddr: 0x100003CF0, symSize: 0x31 }
+  - { offsetInCU: 0x26, offset: 0x16FF, size: 0x8, addend: 0x0, symName: _WIN_CreateViewport, symObjAddr: 0x0, symBinAddr: 0x100003D30, symSize: 0x70 }
+  - { offsetInCU: 0x6C8, offset: 0x1DA1, size: 0x8, addend: 0x0, symName: _WIN_CreateViewport, symObjAddr: 0x0, symBinAddr: 0x100003D30, symSize: 0x70 }
+  - { offsetInCU: 0x6FE, offset: 0x1DD7, size: 0x8, addend: 0x0, symName: _WIN_CheckQuit, symObjAddr: 0x70, symBinAddr: 0x100003DA0, symSize: 0x80 }
+  - { offsetInCU: 0x726, offset: 0x1DFF, size: 0x8, addend: 0x0, symName: _WIN_CapFramerate, symObjAddr: 0xF0, symBinAddr: 0x100003E20, symSize: 0x71 }
+...

@@ -25,8 +25,8 @@ void CreateStats(Entity *entity) {
 
 void EntityRender(Entity *entity, Entity *camera, SDL_Renderer *renderer) {
     SDL_Rect offsetPos = entity->sprites->dest;
-    offsetPos.x -= round(camera->transform->position.x);
-    offsetPos.y -= round(camera->transform->position.y);
+    offsetPos.x -= round(camera->collision->x);
+    offsetPos.y -= round(camera->collision->y);
 
     SDL_RenderCopyEx(
         renderer,
