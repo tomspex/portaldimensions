@@ -50,7 +50,6 @@ void TileMapRender(TileMap *tileMap, Entity *camera, SDL_Renderer *renderer) {
     for(int i=0;i<=cameraMapH;i++) {
         for(int j=0;j<=cameraMapW;j++) {
             int index = cameraMapX+j+(cameraMapY+i)*tileMap->width;
-            printf("index: %u\n", index);
             if(tileMap->tiles[index].spriteID != 0) {
                 tileDest.x = tileMap->tiles[index].position.x*TILE_WIDTH-cameraX;
                 tileDest.y = tileMap->tiles[index].position.y*TILE_HEIGHT-cameraY;
