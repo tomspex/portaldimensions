@@ -49,5 +49,8 @@ int main(int argc, char *argv[]) {
     TileMapDestroy(&tileMap);
     EntityDestroy(&player);
     EntityDestroy(&npc);
+    EntityDestroy(&camera);
+
+    SDL_Quit();
     return(0);
 }

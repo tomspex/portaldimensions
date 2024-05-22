@@ -11,6 +11,7 @@ typedef struct {
     Stats     *stats;
 } Entity;
 
+void EntityResetPointers(Entity *entity);
 void CreateSprites(Entity *entity);
 void CreateCollision(Entity *entity);
 void CreateTransform(Entity *entity);

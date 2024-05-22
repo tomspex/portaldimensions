@@ -7,6 +7,7 @@
 
 Entity PlayerCreate(SDL_Renderer *renderer) {
     Entity player;
+    EntityResetPointers(&player);
     CreateSprites(&player);
     CreateTransform(&player);
     CreateVelocity(&player);

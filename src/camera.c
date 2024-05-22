@@ -5,6 +5,7 @@
 
 Entity CameraCreate() {
     Entity camera;
+    EntityResetPointers(&camera);
     CreateCollision(&camera);
     camera.collision->w = WIN_WIDTH;
     camera.collision->h = WIN_HEIGHT;

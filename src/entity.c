@@ -3,6 +3,14 @@
 
 #include "entity.h"
 
+void EntityResetPointers(Entity *entity) {
+    entity->sprites = NULL;
+    entity->collision = NULL;
+    entity->transform = NULL;
+    entity->velocity = NULL;
+    entity->stats = NULL;
+}
+
 void CreateSprites(Entity *entity) {
     entity->sprites = malloc(sizeof(Sprites));
 }
