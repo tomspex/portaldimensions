@@ -6,6 +6,7 @@ Entity ActiveCreate(char *spritesheet, SDL_Renderer *renderer) {
     Entity active;
     EntityResetPointers(&active);
     CreateSprites(&active);
+    CreateCollision(&active);
     CreateTransform(&active);
     CreateVelocity(&active);
     CreateStats(&active);
@@ -14,6 +15,8 @@ Entity ActiveCreate(char *spritesheet, SDL_Renderer *renderer) {
         renderer,
         spritesheet
     );
+    active.collision->w = ACTIVE_WIDTH;
+    active.collision->h = ACTIVE_HEIGHT;
     active.stats->speed = ACTIVE_SPEED;
     active.sprites->dest.w = ACTIVE_WIDTH;
     active.sprites->dest.h = ACTIVE_HEIGHT;

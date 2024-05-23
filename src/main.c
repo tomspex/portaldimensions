@@ -8,6 +8,7 @@
 #include "player.h"
 #include "npc.h"
 #include "camera.h"
+#include "sprite.h"
 #include "tile.h"
 // temp
 
@@ -16,9 +17,9 @@
 int main(int argc, char *argv[]) {
     WIN_Viewport viewport = WIN_CreateViewport("Portal: Dimensions");
     
-    SDL_Texture *tileMapTexture = IMG_LoadTexture(viewport.renderer, "tilemap.png");
-    TileMap tileMap = TileMapCreate(tileMapTexture);
-    TileMapRead(&tileMap, "tile.bin");
+    Spritesheet spritesheet = SpritesheetCreate("spritesheet.png", "tilesheet.sap", viewport.renderer);
+    TileMap tileMap = TileMapCreate(&spritesheet);
+    TileMapRead(&tileMap, "tiles.tap");
 
     Entity camera = CameraCreate();
     Entity player = ActiveCreate("player.png", viewport.renderer);
@@ -46,6 +47,7 @@ int main(int argc, char *argv[]) {
         WIN_CapFramerate(&lastTick);
     }
 
+    SpritesheetDestroy(&spritesheet);
     TileMapDestroy(&tileMap);
     EntityDestroy(&player);
     EntityDestroy(&npc);

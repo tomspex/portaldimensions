@@ -3,6 +3,7 @@
 
 #include <SDL2/SDL.h>
 
+#include "sprite.h"
 #include "entity.h"
 #include "var.h"
 
@@ -16,11 +17,11 @@ typedef struct {
 
 typedef struct {
     Tile *tiles;
+    Spritesheet *spritesheet;
     int height, width, size;
-    SDL_Texture *spritesheet;
 } TileMap;
 
-TileMap TileMapCreate(SDL_Texture *spritesheet);
+TileMap TileMapCreate(Spritesheet *spritesheet);
 void    TileMapRead(TileMap *tileMap, const char *src);
 void    TileMapRender(TileMap *tileMap, Entity *camera, SDL_Renderer *renderer);
 void    TileMapDestroy(TileMap *tileMap);
